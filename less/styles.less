@@ -1,0 +1,90 @@
+/*边框*/
+.border(@border_width:1px,@border_color:#F00){
+	border:@border_width solid @border_color;
+}
+.border1{
+	.border(1px,#F00);
+}
+/*圆角*/
+.border-radius(@radius:5px){
+	-webkit-border-radius:@radius;
+	-moz-border-radius:@radius;
+	border-radius:@radius;
+	padding:10px;
+}
+
+/*阴影*/
+.box-shadow(@x:0px,@y:3px,@blur:5px,@alpha:0.5){
+	-webkit-box-shadow:@x @y @blur rgba(0, 0, 0, @alpha);
+	-moz-box-shadow:@x @y @blur rgba(0, 0, 0, @alpha);
+	box-shadow:@x @y @blur rgba(0, 0, 0, @alpha);
+}
+/*过渡*/
+.transition(@prop:all,@time:1s,@ease:linear){
+	-webkit-transition:@prop @time @ease;
+	-moz-transition:@prop @time @ease;
+	-o-transition:@prop @time @ease;
+	-ms-transition:@prop @time @ease;
+	transition:@prop @time @ease;
+}
+
+/*倾斜*/
+.transform (@rotate: 90deg, @scale: 1, @skew: 1deg, @translate: 10px) {
+    -webkit-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+    -moz-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+    -o-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+    -ms-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+    transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+}
+
+/* 渐变 */
+.gradient (@origin: left, @start: #ffffff, @stop: #000000) {
+    background-color: @start;
+    background-image: -webkit-linear-gradient(@origin, @start, @stop);
+    background-image: -moz-linear-gradient(@origin, @start, @stop);
+    background-image: -o-linear-gradient(@origin, @start, @stop);
+    background-image: -ms-linear-gradient(@origin, @start, @stop);
+    background-image: linear-gradient(@origin, @start, @stop);
+}
+/*快速渐变*/
+.quick-gradient (@origin: left, @alpha: 0.2) {
+    background-image: -webkit-linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+    background-image: -moz-linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+    background-image: -o-linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+    background-image: -ms-linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+    background-image: linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+}
+
+
+/* 镜像 */
+.reflect (@length: 50%, @opacity: 0.2){
+    -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(@length, transparent), to(rgba(255,255,255,@opacity)));
+}
+  
+
+
+#header,#footer,.test{
+	.border(1px,#f00);
+	.border-radius(20px);
+	.box-shadow(0px,0px,20px,1);
+	.transition(all, 0.5s, ease-in);
+	//.gradient(left, #663333, #333333);
+	background-color: BADA55;
+    .quick-gradient(top, 0.2);
+	&:hover{
+		opacity:0.5;	
+		.transform(0deg, 2, 1deg, 100px);
+		 .reflect(20%, 0.2);
+	}
+}
+
+.column_test{
+}
+body{padding-top:50px;}
+.breadcrumb{	position:fixed; width:100%;}
+#banner .carousel-inner img{width:100%; height:600px !important;}
+#banner_sm .carousel-inner img{width:100%; height:300px !important;}
+
+ul.nav-pills.affix{
+        top: 350px; /* Set the top position of pinned element */
+    }
